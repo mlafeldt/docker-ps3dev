@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 MAINTAINER Mathias Lafeldt <mathias.lafeldt@gmail.com>
 
@@ -23,7 +23,7 @@ RUN apt-get update \
         libelf-dev \
         libgmp3-dev \
         libncurses5-dev \
-        libtool-bin \
+        libtool \
         make \
         patch \
         pkg-config \
@@ -32,7 +32,8 @@ RUN apt-get update \
         vim \
         wget \
         zlib1g-dev \
-    && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \ # pass gmp dependency check
+    # pass toolchain's check for gmp
+    && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && git clone git://github.com/ps3dev/ps3toolchain.git /toolchain \
     && cd /toolchain \
     && git checkout -qf $TOOLCHAIN_VERSION \
