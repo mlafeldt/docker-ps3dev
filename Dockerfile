@@ -10,6 +10,8 @@ ENV PATH    $PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin
 
 ENV DEBIAN_FRONTEND noninteractive
 
+COPY toolchain-docker.sh /
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y \
@@ -18,11 +20,13 @@ RUN apt-get update \
         bison \
         bzip2 \
         flex \
+        g++ \
         gcc \
         git \
         libelf-dev \
         libgmp3-dev \
         libncurses5-dev \
+        libssl-dev \
         libtool \
         make \
         patch \
@@ -37,7 +41,7 @@ RUN apt-get update \
     && git clone git://github.com/ps3dev/ps3toolchain.git /toolchain \
     && cd /toolchain \
     && git checkout -qf $TOOLCHAIN_VERSION \
-    && ./toolchain.sh \
+    && /toolchain-docker.sh \
     && rm -rf /toolchain /var/lib/apt/lists/*
 
 WORKDIR /src
