@@ -44,3 +44,5 @@ script: docker run -it --rm -v "$PWD:/src" mlafeldt/ps3dev make test
 ## Author
 
 This project is being developed by [Mathias Lafeldt](https://twitter.com/mlafeldt).
+
+I also created a [Docker image for PS2 development](https://github.com/mlafeldt/docker-ps2dev).
