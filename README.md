@@ -24,6 +24,9 @@ Omit the command to get a login shell (`/bin/bash`) in the running container:
 docker run -it --rm -v "$PWD:/src" mlafeldt/ps3dev
 ```
 
+For a working example, use the Docker image to build the
+[PSL1GHT samples](https://github.com/ps3dev/PSL1GHT/tree/master/samples).
+
 ## Continuous Integration
 
 With the Docker image in hand, you can also build and test your PS3 applications
