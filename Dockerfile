@@ -38,14 +38,13 @@ RUN apt update \
         vim \
         wget \
         xz-utils \
-        zlib1g-dev
+        zlib1g-dev \
 
-# Fixes certificate errors with letsencrypt in ARMv7
-RUN echo "ca_certificate=/etc/ssl/certs/ca-certificates.crt" >> /etc/wgetrc \
- && echo "check_certificate = off" >> ~/.wgetrc
+# Fixes certificate errors with letsencrypt in ARMv7 echo "ca_certificate=/etc/ssl/certs/ca-certificates.crt" >> /etc/wgetrc \
+&& echo "check_certificate = off" >> ~/.wgetrc \
 
-    # pass toolchain's check for gmp
-RUN ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
+# pass toolchain's check for gmp
+&& ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && git clone https://github.com/ps3dev/ps3toolchain.git /toolchain \
     && cd /toolchain \
     && git checkout -qf $TOOLCHAIN_VERSION \
