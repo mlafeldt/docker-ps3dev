@@ -1,5 +1,7 @@
 # A Docker Image for PS3 Development
 
+## Note: This project is no longer maintained. Please use https://github.com/ps3dev/ps3dev-docker instead.
+
 [![](https://images.microbadger.com/badges/image/mlafeldt/ps3dev.svg)](https://microbadger.com/images/mlafeldt/ps3dev)
 [![](https://img.shields.io/docker/pulls/mlafeldt/ps3dev.svg?maxAge=604800)](https://hub.docker.com/r/mlafeldt/ps3dev/)
 
